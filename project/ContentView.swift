@@ -281,7 +281,7 @@ struct WorkoutPage: View {
         
         WorkoutDay(day: "Day 1", workouts: [
             Workout(
-                name: "Morning Routine",
+                name: "Day 1 Routines",
                 exercises: [
                     Exercise(
                     name: "Push-ups",
@@ -294,11 +294,7 @@ struct WorkoutPage: View {
                     description: "Do 3 sets of 15 squats",
                     estimatedTime: 15,
                     estimatedKcal: 60),
-            ]),
-            
-            Workout(
-                name: "Evening Workout",
-                exercises: [
+                    
                     Exercise(
                     name: "Plank",
                     description: "Hold plank position for 1 minute",
@@ -309,15 +305,37 @@ struct WorkoutPage: View {
                     name: "Lunges",
                     description: "Do 3 sets of 12 lunges",
                     estimatedTime: 15,
-                    estimatedKcal: 50),
+                    estimatedKcal: 50,
+                    sets: 3,
+                    reps: 12),
+                    
+                    Exercise(
+                    name: "Leg Curls",
+                    description: "Do 3 sets of 12 lunges",
+                    estimatedTime: 10,
+                    estimatedKcal: 40,
+                    sets: 3,
+                    reps: 12,
+                    weight: "63 lbs"),
+                    
+                    Exercise(
+                    name: "Leg Extension",
+                    description: "Do 3 sets of 12 lunges",
+                    estimatedTime: 10,
+                    estimatedKcal: 40,
+                    sets: 3,
+                    reps: 12,
+                    weight: "63 lbs"),
             ]),
+            
+
         ]),
         
         // day 2
         
         WorkoutDay(day: "Day 2", workouts: [
             Workout(
-            name: "Cardio Session",
+            name: "Day 2 Routines",
             exercises: [
                 Exercise(
                 name: "Running",
@@ -330,31 +348,27 @@ struct WorkoutPage: View {
                 description: "Do 3 sets of 30 jumping jacks",
                 estimatedTime: 10 ,
                 estimatedKcal: 80),
-            ]),
-            
-            Workout(
-                name: "Strength Training",
-                exercises: [
-                    Exercise(
-                        name: "Deadlifts",
-                        description: "Do 4 sets of 8 deadlifts",
-                        estimatedTime: 25 ,
-                        estimatedKcal: 120,
-                        sets: 4,
-                        reps: 8,
-                        weight: "50 lbs"),
                 
-                    Exercise(
-                        name: "Bicep Curls",
-                        description: "Do 3 sets of 12 bicep curls",
-                        estimatedTime: 15 ,
-                        estimatedKcal: 70,
-                        sets: 3,
-                        reps: 12,
-                        weight: "20 lbs"),
+                Exercise(
+                    name: "Deadlifts",
+                    description: "Do 4 sets of 8 deadlifts",
+                    estimatedTime: 25 ,
+                    estimatedKcal: 120,
+                    sets: 4,
+                    reps: 8,
+                    weight: "50 lbs"),
+            
+                Exercise(
+                    name: "Bicep Curls",
+                    description: "Do 3 sets of 12 bicep curls",
+                    estimatedTime: 15 ,
+                    estimatedKcal: 70,
+                    sets: 3,
+                    reps: 12,
+                    weight: "20 lbs")
             ]),
         ]),
-        // Add more workout days as needed
+        // Day ...
     ]
 
     var body: some View {
