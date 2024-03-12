@@ -1,37 +1,6 @@
 import SwiftUI
 
-
-struct ContentView: View {
-    var body: some View {
-        TabView {
-            HomePageView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-            
-            Text("Workout")
-                .tabItem {
-                    Image(systemName: "figure.run")
-                    Text("Workout")
-                }
-            
-            Text("Voucher")
-                .tabItem {
-                    Image(systemName: "ticket.fill")
-                    Text("Voucher")
-                }
-            
-            Text("Profile")
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Profile")
-                }
-        }
-    }
-}
-
-struct HomePageView: View {
+struct HomepageView: View {
     let username = "John"
     var days = 3
     
@@ -92,8 +61,8 @@ struct HomePageView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomepageView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomepageView()
     }
 }

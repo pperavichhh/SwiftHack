@@ -14,6 +14,8 @@
 		84A450122BA01CB5006F3790 /* projectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A450112BA01CB5006F3790 /* projectTests.swift */; };
 		84A4501C2BA01CB5006F3790 /* projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4501B2BA01CB5006F3790 /* projectUITests.swift */; };
 		84A4501E2BA01CB5006F3790 /* projectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4501D2BA01CB5006F3790 /* projectUITestsLaunchTests.swift */; };
+		84A4502B2BA026AB006F3790 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4502A2BA026AB006F3790 /* HomePageView.swift */; };
+		84A4502F2BA030FF006F3790 /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4502E2BA030FF006F3790 /* ChartsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		84A450172BA01CB5006F3790 /* projectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A4501B2BA01CB5006F3790 /* projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITests.swift; sourceTree = "<group>"; };
 		84A4501D2BA01CB5006F3790 /* projectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84A4502A2BA026AB006F3790 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		84A4502E2BA030FF006F3790 /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,10 @@
 			children = (
 				84A450002BA01CB4006F3790 /* projectApp.swift */,
 				84A450022BA01CB4006F3790 /* ContentView.swift */,
+				84A4502A2BA026AB006F3790 /* HomePageView.swift */,
 				84A450042BA01CB5006F3790 /* Assets.xcassets */,
 				84A450062BA01CB5006F3790 /* Preview Content */,
+				84A4502E2BA030FF006F3790 /* ChartsView.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A450032BA01CB4006F3790 /* ContentView.swift in Sources */,
+				84A4502B2BA026AB006F3790 /* HomePageView.swift in Sources */,
 				84A450012BA01CB4006F3790 /* projectApp.swift in Sources */,
+				84A4502F2BA030FF006F3790 /* ChartsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
