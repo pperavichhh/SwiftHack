@@ -9,39 +9,91 @@ import SwiftUI
 // tabbed bar
 
 struct ContentView: View {
+    @State private var isShowingWelcomePage = true
+    @State private var birthday = Date()
+    @State private var selectedGender: Gender = .male
+    @State private var weight = ""
+    @State private var height = ""
+
     var body: some View {
-        TabView {
-            
-            WorkoutPage()                
-                .tabItem {
-                Image(systemName: "figure.run")
-                Text("Workout")
+        NavigationView {
+            if isShowingWelcomePage {
+                WelcomePage(birthday: $birthday, selectedGender: $selectedGender, weight: $weight, height: $height, isShowingWelcomePage: $isShowingWelcomePage)
+            } else {
+                TabView {
+                    WorkoutPage()
+                        .tabItem {
+                            Image(systemName: "figure.run")
+                            Text("Workout")
+                        }
+
+                    AddDataView()
+                        .tabItem {
+                            Image(systemName: "plus.circle")
+                            Text("Add Data")
+                        }
+
+                    HomePageView()
+                        .tabItem {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+
+                    VoucherListView()
+                        .tabItem {
+                            Image(systemName: "ticket.fill")
+                            Text("Voucher")
+                        }
+
+                    SettingsView()
+                        .tabItem {
+                            Image(systemName: "gear")
+                            Text("Setting")
+                        }
+                }
+                .accentColor(.green)
             }
-            
-            AddDataView()
-                .tabItem {
-                    Image(systemName: "plus.circle")
-                    Text("Add Data")
+        }
+    }
+}
+
+struct WelcomePage: View {
+    @Binding var birthday: Date
+    @Binding var selectedGender: Gender
+    @Binding var weight: String
+    @Binding var height: String
+    @Binding var isShowingWelcomePage: Bool
+
+    var body: some View {
+        Form {
+            Section(header: Text("Personal Information")) {
+                Picker("Gender", selection: $selectedGender) {
+                    ForEach(Gender.allCases, id: \.self) { gender in
+                        Text(gender.rawValue)
+                    }
                 }
-            HomePageView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+                .pickerStyle(SegmentedPickerStyle())
+
+                DatePicker("Birthday", selection: $birthday, displayedComponents: [.date])
+                    .labelsHidden()
+
+                TextField("Weight (kg)", text: $weight)
+                    .keyboardType(.decimalPad)
+
+                TextField("Height (cm)", text: $height)
+                    .keyboardType(.numberPad)
+            }
+
+            Section {
+                Button(action: {
+                    // Perform validation if needed
+                    isShowingWelcomePage = false
+                }) {
+                    Text("Continue")
                 }
-        
-            
-            VoucherListView()
-                .tabItem {
-                    Image(systemName: "ticket.fill")
-                    Text("Voucher")
-                }
-            
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Setting")
-                }
-        }.accentColor(.black)
+            }
+        }
+        .navigationTitle("Welcome")
     }
 }
 
@@ -53,13 +105,13 @@ struct HomePageView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Hi, \(username)!")
-                .font(Font.custom("SF Pro", size: 28).weight(.bold))
+                .font(Font.custom("SF Pro", size: 44).weight(.bold))
                 .padding(.leading)
                 .lineSpacing(13)
                 .foregroundColor(.black)
             
             Text("You have been here for \(days) days")
-                .font(Font.custom("SF Pro", size: 16))
+                .font(Font.custom("SF Pro", size: 20))
                 .padding([.leading, .bottom])
                 .lineSpacing(13)
                 .foregroundColor(Color(red: 0.56, green: 0.56, blue: 0.58))
@@ -114,6 +166,8 @@ struct AddDataView: View {
     @State private var age: String = ""
     @State private var weight: String = ""
     @State private var height: String = ""
+    
+    @State private var isShowingAddDataAlert = false
     
     var body: some View {
         NavigationView {
@@ -441,36 +495,13 @@ struct SettingsView: View {
                     }
                 }
 
-                Section(header: Text("Account")) {
-                    NavigationLink(destination: Text("Account Settings")) {
-                        HStack {
-                            Image(systemName: "person")
-                            Text("Account Settings")
-                        }
-                    }
-                }
-
-                Section(header: Text("Feedback")) {
-                    NavigationLink(destination: Text("Send Feedback")) {
-                        HStack {
-                            Image(systemName: "message")
-                            Text("Send Feedback")
-                        }
-                    }
-                    NavigationLink(destination: Text("Rate App")) {
-                        HStack {
-                            Image(systemName: "star")
-                            Text("Rate App")
-                        }
-                    }
-                }
-
                 Section {
                     Button(action: {
                         isShowingLogoutAlert = true
                     }) {
                         HStack {
                             Image(systemName: "arrow.down.left.circle")
+                                .foregroundStyle(.black)
                             Text("Logout")
                                 .foregroundColor(.red)
                         }
